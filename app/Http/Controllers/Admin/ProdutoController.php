@@ -38,6 +38,8 @@ class ProdutoController extends Controller
         $produtoCreate = Produto::create($request->all());
         $produtoCreate->fill($request->all());
 
+        $produtoCreate->setSlug();
+
         $validator = Validator::make($request->only('files'), ['files.*' => 'image']);
 
         if ($validator->fails() === true) {

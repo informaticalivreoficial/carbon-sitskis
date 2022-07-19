@@ -140,8 +140,8 @@ Route::prefix('admin')->middleware('auth')->group( function(){
     //*************************** Produtos *********************************************/
     Route::match(['get', 'post'], 'produtos/pesquisa', [ProdutoController::class, 'search'])->name('produtos.search');
     Route::get('produtos/set-status', [ProdutoController::class, 'produtoSetStatus'])->name('produtos.produtoSetStatus');
-    Route::post('posts/image-set-cover', [ProdutoController::class, 'imageSetCover'])->name('produtos.imageSetCover');
-    Route::delete('posts/image-remove', [ProdutoController::class, 'imageRemove'])->name('produtos.imageRemove');
+    Route::post('produtos/image-set-cover', [ProdutoController::class, 'imageSetCover'])->name('produtos.imageSetCover');
+    Route::delete('produtos/image-remove', [ProdutoController::class, 'imageRemove'])->name('produtos.imageRemove');
     Route::delete('produtos/deleteon', [ProdutoController::class, 'deleteon'])->name('produtos.deleteon');
     Route::get('produtos/delete', [ProdutoController::class, 'delete'])->name('produtos.delete');
     Route::put('produtos/{id}', [ProdutoController::class, 'update'])->name('produtos.update');

@@ -4,13 +4,13 @@
 
 @if (!empty($slides) && $slides->count() > 0)
     <div class="home-slider">
-        @foreach ($slides as $slide)
+         @foreach ($slides as $slide)
             <div class="item" data-slide="{{$slide->getUrlImagemAttribute()}}">
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-11 col-md-8 col-lg-7">
-                            <h2 class="slide-title">customized carbon fiber sitskis built and tailored for maximal lightness, confort and safety</h2>
-                            <a href="index.php?v=produtos" class="btn btn-primary">view products</a>
+                            <h2 class="slide-title">{!!$slide->content!!}</h2>
+                            <a href="{{url($slide->link ?? '#')}}" class="btn btn-primary">view products</a>
                         </div>
                     </div>
                 </div>

@@ -60,7 +60,7 @@ class WebController extends Controller
     {
         $Configuracoes = Configuracoes::where('id', '1')->first();
         $produto = Produto::where('slug', $slug)->available()->first();
-        $produtos = Produto::where('id', '!=', $produto->id)->available()->limit(3)->get();
+        $produtos = Produto::orderBy('created_at', 'DESC')->where('id', '!=', $produto->id)->available()->limit(3)->get();
 
         $produto->views = $produto->views + 1;
         $produto->save();

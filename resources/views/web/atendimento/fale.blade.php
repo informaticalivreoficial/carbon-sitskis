@@ -41,7 +41,7 @@
                     </div>
                     <div class="form-group form_hide">
                         <label for="message">Message</label>
-                        <textarea name="message" id="comment" name="mensagem" rows="8" class="form-control" placeholder="Enter text here"></textarea>
+                        <textarea id="comment" name="mensagem" rows="8" class="form-control" placeholder="Enter text here"></textarea>
                     </div>
                     <input type="submit" name="submit" id="js-contact-btn" value="Submit" class="btn btn-primary form_hide">
                 </form>
