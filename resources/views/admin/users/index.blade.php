@@ -67,13 +67,15 @@
                         @foreach($users as $user)                    
                         <tr style="{{ ($user->status == '1' ? '' : 'background: #fffed8 !important;')  }}">
                             @php
-                                if(!empty($user->avatar) && \Illuminate\Support\Facades\File::exists(public_path() . '/storage/' . $user->avatar)){
-                                    $cover = url('storage/'.$user->avatar);
+                                if(!empty($user->avatar) && \Illuminate\Support\Facades\Storage::exists(env('AWS_PASTA') . $user->avatar)){
+                                    $cover = \Illuminate\Support\Facades\Storage::url($user->avatar);
                                 } else {
                                     if($user->genero == 'masculino'){
                                         $cover = url(asset('backend/assets/images/avatar5.png'));
-                                    }else{
+                                    }elseif($user->genero == 'feminino'){
                                         $cover = url(asset('backend/assets/images/avatar3.png'));
+                                    }else{
+                                        $cover = url(asset('backend/assets/images/image.jpg'));
                                     }
                                 }
                             @endphp
