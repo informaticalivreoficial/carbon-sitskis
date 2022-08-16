@@ -83,7 +83,7 @@ class Produto extends Model
             return url(asset('backend/assets/images/image.jpg'));
         }
 
-        return Storage::url(Cropper::thumb($cover['path'], 358, 352));
+        return Storage::url($cover['path']);
     }
 
     public function nocover()
