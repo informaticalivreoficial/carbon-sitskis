@@ -61,7 +61,7 @@
                         <div class="row widget-content">
                             <ul class="menu">
                                 <li><a href="{{route('web.home')}}">Home</a></li>
-                                <li><a href="https://localhost/Carbon-Sit/public/pagina/about-us">About Us</a></li>
+                                <li><a href="https://carbonsitskis.com/pagina/about-us">About Us</a></li>
                                 <li><a href="{{route('web.parceiros')}}">Partners</a></li>
                                 <li><a href="{{route('web.produtos')}}">Products</a></li>
                                 <li><a href="{{route('web.atendimento')}}">Contact</a></li>
