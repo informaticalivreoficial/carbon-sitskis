@@ -53,7 +53,7 @@ class ProdutoController extends Controller
             foreach ($request->allFiles()['files'] as $image) {
                 $produtoGb = new ProdutoGb();
                 $produtoGb->produto = $produtoCreate->id;
-                $produtoGb->path = $image->storeAs('produtos/' . $produtoCreate->id, Str::slug($request->name) . '-' . str_replace('.', '', microtime(true)) . '.' . $image->extension());
+                $produtoGb->path = $image->storeAs(env('AWS_PASTA') . 'produtos/' . $produtoCreate->id, Str::slug($request->name) . '-' . str_replace('.', '', microtime(true)) . '.' . $image->extension());
                 $produtoGb->save();
                 unset($produtoGb);
             }
@@ -96,7 +96,7 @@ class ProdutoController extends Controller
             foreach ($request->allFiles()['files'] as $image) {
                 $produtoImage = new ProdutoGb();
                 $produtoImage->produto = $produto->id;
-                $produtoImage->path = $image->storeAs('produtos/' . $produto->id, Str::slug($request->name) . '-' . str_replace('.', '', microtime(true)) . '.' . $image->extension());
+                $produtoImage->path = $image->storeAs(env('AWS_PASTA') . 'produtos/' . $produto->id, Str::slug($request->name) . '-' . str_replace('.', '', microtime(true)) . '.' . $image->extension());
                 $produtoImage->save();
                 unset($produtoImage);
             }
@@ -131,7 +131,7 @@ class ProdutoController extends Controller
     {
         $imageDelete = ProdutoGb::where('id', $request->image)->first();
         Storage::delete($imageDelete->path);
-        Cropper::flush($imageDelete->path);
+        //Cropper::flush($imageDelete->path);
         $imageDelete->delete();
 
         $json = [
@@ -176,7 +176,7 @@ class ProdutoController extends Controller
         if(!empty($produtodelete)){
             if(!empty($imageDelete)){
                 Storage::delete($imageDelete->path);
-                Cropper::flush($imageDelete->path);
+                //Cropper::flush($imageDelete->path);
                 $imageDelete->delete();
                 Storage::deleteDirectory('produtos/'.$produtodelete->id);
                 $produtodelete->delete();
