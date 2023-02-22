@@ -84,7 +84,7 @@ class SendEmailController extends Controller
         }else{
             $data = [
                 'sitename' => $Configuracoes->nomedosite,
-                'siteemail' => $Configuracoes->email,
+                'siteemail' => env('MAIL_FROM_ADDRESS'),
                 'reply_name' => $request->nome,
                 'reply_email' => $request->email,
                 'telefone' => $request->telefone,
@@ -121,7 +121,7 @@ class SendEmailController extends Controller
         }else{
             $data = [
                 'sitename' => $Configuracoes->nomedosite,
-                'siteemail' => $Configuracoes->email,
+                'siteemail' => env('MAIL_FROM_ADDRESS'),
                 'reply_name' => $request->nome,
                 'reply_email' => $request->email,
                 'mensagem' => $request->mensagem
@@ -129,7 +129,7 @@ class SendEmailController extends Controller
 
             $retorno = [
                 'sitename' => $Configuracoes->nomedosite,
-                'siteemail' => $Configuracoes->email,
+                'siteemail' => env('MAIL_FROM_ADDRESS'),
                 'reply_name' => $request->nome,
                 'reply_email' => $request->email
             ];
